@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Vista tree -->
+        <record id="view_tree_tcu_estudiante" model="ir.ui.view">
+            <field name="name">tcu.estudiante.tree</field>
+            <field name="model">tcu.estudiante</field>
+            <field name="arch" type="xml">
+                <tree string="Estudiantes">
+                    <field name="name"/>
+                    <field name="carnet"/>
+                    <field name="correo"/>
+                    <field name="estado_solicitud"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista form -->
+        <record id="view_form_tcu_estudiante" model="ir.ui.view">
+            <field name="name">tcu.estudiante.form</field>
+            <field name="model">tcu.estudiante</field>
+            <field name="arch" type="xml">
+                <form string="Estudiante">
+                    <group>
+                        <field name="name"/>
+                        <field name="identificacion"/>
+                        <field name="carnet"/>
+                        <field name="correo"/>
+                        <field name="telefono"/>
+                        <field name="lugar_tcu"/>
+                        <field name="encargado"/>
+                        <field name="fecha_solicitud"/>
+                        <field name="estado_solicitud"/>
+                        <field name="observaciones"/>
+                        <field name="carta_aceptacion" filename="Carta"/>
+                        <field name="documento_adicional" filename="Documento"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_tcu_estudiante" model="ir.actions.act_window">
+            <field name="name">Estudiantes</field>
+            <field name="res_model">tcu.estudiante</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_tcu_estudiante"
+                  name="Estudiantes"
+                  parent="menu_tcu_root"
+                  action="action_tcu_estudiante"/>
+
+
+        <!-- Menú raíz para TCU -->
+        <menuitem id="menu_tcu_root" name="TCU"/>
+
+    </data>
+</odoo>

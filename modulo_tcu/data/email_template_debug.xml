@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="email_template_estado_demo" model="mail.template">
+            <field name="name">Correo de Prueba</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="subject">Hola desde Odoo</field>
+            <field name="body_html" type="html">
+                <![CDATA[
+                    <html>
+                        <body>
+                            <p>Este es un correo de prueba.</p>
+                        </body>
+                    </html>
+                ]]>
+            </field>
+        </record>
+    </data>
+</odoo>

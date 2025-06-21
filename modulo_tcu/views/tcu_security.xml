@@ -1,0 +1,13 @@
+<odoo>
+    <data noupdate="1">
+        <record id="tcu_estudiante_access" model="ir.model.access">
+            <field name="name">Permisos Estudiantes TCU</field>
+            <field name="model_id" ref="model_tcu_estudiante"/>
+            <field name="group_id" ref="group_tcu_estudiante"/>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="True"/>
+            <field name="perm_create" eval="True"/>
+            <field name="perm_unlink" eval="False"/>
+        </record>
+    </data>
+</odoo>
