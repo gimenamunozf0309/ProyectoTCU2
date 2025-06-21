@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!-- Acción principal -->
+        <record id="action_tcu_estudiante" model="ir.actions.act_window">
+            <field name="name">Estudiantes TCU</field>
+            <field name="res_model">tcu.estudiante</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_tree_tcu_estudiante"/>
+        </record>
+
+        <!-- Vista TREE -->
+        <record id="view_tree_tcu_estudiante" model="ir.ui.view">
+            <field name="name">tcu.estudiante.tree</field>
+            <field name="model">tcu.estudiante</field>
+            <field name="arch" type="xml">
+                <tree string="Estudiantes TCU">
+                    <field name="name"/>
+                    <field name="identificacion"/>
+                    <field name="carnet"/>
+                    <field name="correo"/>
+                    <field name="telefono"/>
+                    <field name="lugar_tcu"/>
+                    <field name="encargado"/>
+                    <field name="estado_solicitud"/>
+                    <field name="fecha_solicitud"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista FORM -->
+        <record id="view_form_tcu_estudiante" model="ir.ui.view">
+            <field name="name">tcu.estudiante.form</field>
+            <field name="model">tcu.estudiante</field>
+            <field name="arch" type="xml">
+                <form string="Estudiante TCU">
+                    <sheet>
+
+                        <header>
+                            <button name="enviar_estado_por_correo" type="object"
+                                    string="Notificar Estado" class="btn-primary"
+                                    attrs="{'invisible': [('estado_solicitud', '=', 'pendiente')]}"/>
+                            <button name="accion_cambiar_estado" type="object"
+                                    string="Actualizar Estado" class="oe_highlight"/>
+                        </header>
+
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="identificacion"/>
+                                <field name="carnet"/>
+                            </group>
+                            <group>
+                                <field name="correo"/>
+                                <field name="telefono"/>
+                            </group>
+                            <group>
+                                <field name="lugar_tcu"/>
+                                <field name="encargado"/>
+                            </group>
+                            <group>
+                                <field name="estado_solicitud" widget="statusbar"
+                                       statusbar_visible="en_revision,pendiente,rechazado,aprobado"/>
+                                <field name="fecha_solicitud"/>
+                                <field name="observaciones"/>
+                                <field name="carta_aceptacion" filename="Carta de Aceptación"/>
+                                <field name="documento_adicional" filename="Documento Adicional"/>
+                            </group>
+                        </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vistas conectadas a la acción -->
+        <record id="action_tcu_estudiante_tree_view" model="ir.actions.act_window.view">
+            <field name="sequence" eval="10"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_tree_tcu_estudiante"/>
+            <field name="act_window_id" ref="action_tcu_estudiante"/>
+        </record>
+
+        <record id="action_tcu_estudiante_form_view" model="ir.actions.act_window.view">
+            <field name="sequence" eval="20"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_form_tcu_estudiante"/>
+            <field name="act_window_id" ref="action_tcu_estudiante"/>
+        </record>
+
+    </data>
+</odoo>

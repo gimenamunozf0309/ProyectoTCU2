@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_tcu_root" name="TCU" sequence="10"/>
+        <menuitem id="menu_tcu_estudiante" name="Estudiantes TCU" parent="menu_tcu_root" sequence="20" action="action_tcu_estudiante"/>
+    </data>
+</odoo>
